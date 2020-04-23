@@ -15,6 +15,7 @@ class MainFragment: Fragment() {
     companion object{
         private const val bundleKey = "number"
 
+        //프래그먼트 객체 생성
         fun shared(no:Int):MainFragment{
             val mainFragment = MainFragment()
             val bundle = Bundle()
@@ -28,7 +29,7 @@ class MainFragment: Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("debugTest","onCreate")
+        //번들 데이터 초기화
         mNumber = arguments!!.getInt(bundleKey,0)
     }
 
@@ -37,18 +38,12 @@ class MainFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d("debugTest","onCreateView")
+        //프래그먼트 뷰 전개
         return layoutInflater.inflate(R.layout.fragment_main, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        Log.d("debugTest","onViewCreated")
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        Log.d("debugTest","onActivityCreated")
         tv_name_fragment.text = "$mNumber 번째 fragment를 생성했습니다."
     }
 }

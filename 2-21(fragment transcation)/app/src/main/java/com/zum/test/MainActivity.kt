@@ -14,17 +14,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //추가 기능
         btn_add.setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .add(container_fragment.id, MainFragment.shared(mNumber++), mNumber.toString())
                 .commit()
         }
 
+        //삭제 기능
         btn_remove.setOnClickListener {
             if (mNumber == 0) {
                 return@setOnClickListener
             }
 
+            //tag에 해당되는 프래그먼트를 가져와서 remove 시키기
             supportFragmentManager.findFragmentByTag(mNumber.toString())?.let { fragment ->
                 supportFragmentManager.beginTransaction()
                     .remove(fragment)
@@ -37,11 +40,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
+        //상태값 저장
         outState.putInt(bundleKey,mNumber)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
+        //상태값 복원
         mNumber = savedInstanceState.getInt(bundleKey)
     }
 }
