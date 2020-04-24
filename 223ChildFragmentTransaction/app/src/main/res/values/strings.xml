@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">test</string>
+    <string name="add">추가</string>
+    <string name="remove">제거</string>
+</resources>
