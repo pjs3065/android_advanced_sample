@@ -1,4 +1,4 @@
-package com.zum.networkcheckbaseactivitysample
+package com.practice.networkcheckbroadcastreceiversample
 
 import org.junit.Test
 
